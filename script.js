@@ -1,19 +1,15 @@
-// get the original title of the document
-
+// Store the original title of the document
+const originalTitle = document.title;
 
 // start timer when window is opened
 window.onload = function(){
     startTimer();
 }
-
-// append time to existing title
+// Function to update the title with the updated content
 function replaceTitle(additionalContent) {
-    var docs = document.title
-    var timer = additionalContent.toString()
-    console.log(additionalContent)
-    docs = docs.concat(timer)
-    document.title = docs
 
+    // Update the document title with the original title and the new additional content
+    document.title = `${additionalContent}`;
 }
 
 // Function to start the timer
@@ -23,7 +19,7 @@ function startTimer() {
     setInterval(function() {
         elapsedTime += 1;
         let formattedTime = formatTime(elapsedTime);
-        replaceTitle(` - ${formattedTime}`);
+        replaceTitle(` ${formattedTime}`);
     }, 1000);
 }
 
